@@ -51,7 +51,7 @@ class SearchedTile extends StatelessWidget {
                         Text(
                           title,
                           style: GoogleFonts.fredokaOne(
-                              fontSize: 16, fontWeight: FontWeight.w100),
+                              fontSize: 18, fontWeight: FontWeight.w100),
                         ),
                         SizedBox(
                           height: 6,
