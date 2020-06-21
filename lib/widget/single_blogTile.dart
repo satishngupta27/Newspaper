@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:newspaper/provider/bookmark_provider.dart';
 import 'package:newspaper/screen/full_articel_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:share/share.dart';
 
 class BlogTile extends StatelessWidget {
   final String imageUrl;
@@ -21,6 +24,7 @@ class BlogTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bookmark = Provider.of<BookMark>(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -69,13 +73,19 @@ class BlogTile extends StatelessWidget {
                     .toString()),
                 Spacer(),
                 IconButton(
-                  icon: Icon(Icons.bookmark),
-                  onPressed: () {},
+                  icon: Icon(Icons.bookmark_border),
+                  onPressed: () {
+                    bookmark.addItem(title, url, imageUrl, source, publishedAt);
+                  },
                   iconSize: 18,
                 ),
                 IconButton(
                   icon: Icon(Icons.share),
-                  onPressed: () {},
+                  onPressed: () {
+                    Share.share(url,
+                        subject: title
+                    );
+                  },
                   iconSize: 18,
                 )
               ],

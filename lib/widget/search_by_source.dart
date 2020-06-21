@@ -56,7 +56,6 @@ class _SearchBySourceState extends State<SearchBySource> {
                             itemBuilder: (context, index) => SearchedTile(
                                   imageUrl: articles[index].urlToImage,
                                   title: articles[index].title,
-                                  description: articles[index].description,
                                   url: articles[index].url,
                                   source: articles[index].source,
                                   publishedAt: articles[index].publishedAt,

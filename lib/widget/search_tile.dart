@@ -7,7 +7,7 @@ import 'package:newspaper/widget/constants.dart';
 class SearchedTile extends StatelessWidget {
   final String imageUrl;
   final String title;
-  final String description;
+
   final String url;
   final String source;
   final String publishedAt;
@@ -15,7 +15,6 @@ class SearchedTile extends StatelessWidget {
   SearchedTile(
       {@required this.imageUrl,
       @required this.title,
-      this.description,
       @required this.url,
       @required this.source,
       @required this.publishedAt});

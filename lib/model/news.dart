@@ -11,16 +11,18 @@ class News {
   String content;
   String source;
   String publishedAt;
+  bool isSaved;
 
-  News(
-      {this.author,
-      this.title,
-      this.description,
-      this.url,
-      this.urlToImage,
-      this.content,
-      this.source,
-      this.publishedAt});
+  News({this.author,
+    this.title,
+    this.description,
+    this.url,
+    this.urlToImage,
+    this.content,
+    this.source,
+    this.publishedAt,
+    this.isSaved = false
+  });
 }
 
 class Articles {

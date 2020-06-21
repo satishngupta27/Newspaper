@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newspaper/screen/bookmarked_screen.dart';
 import 'package:newspaper/widget/constants.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -31,19 +32,14 @@ class _AccountScreenState extends State<AccountScreen> {
                       radius: 50,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      child: Text(
-                        'Following',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                  Text(
+                    'Satish Gupta',
+                    style: TextStyle(color: Colors.white, fontSize: 30),
                   )
                 ],
               )),
           SwitchListTile(
-            title: const Text('Light mode'),
+            title: const Text('Dark mode'),
             value: _lights,
             onChanged: (bool value) {
               setState(() {
@@ -52,12 +48,26 @@ class _AccountScreenState extends State<AccountScreen> {
             },
             secondary: const Icon(Icons.lightbulb_outline),
           ),
-          Spacer(),
           ListTile(
+            leading: Icon(Icons.library_books),
+            title: Text('My Following'),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.bookmark),
+            title: Text('Bookmark'),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => BookMarkScreen()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.assignment_ind),
             title: Text('About us'),
             onTap: () {},
           ),
           ListTile(
+            leading: Icon(Icons.help),
             title: Text('Help'),
             onTap: () {},
           ),
