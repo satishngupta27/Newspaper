@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newspaper/model/news.dart';
+
 import 'package:newspaper/widget/single_blogTile.dart';
 
 class CategoryContentScreen extends StatefulWidget {

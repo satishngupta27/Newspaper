@@ -69,7 +69,7 @@ class BlogTile extends StatelessWidget {
                     .toString()),
                 Spacer(),
                 IconButton(
-                  icon: Icon(Icons.save),
+                  icon: Icon(Icons.bookmark),
                   onPressed: () {},
                   iconSize: 18,
                 ),
