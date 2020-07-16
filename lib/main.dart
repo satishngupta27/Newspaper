@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:newspaper/db/bookMarkDb.dart';
 import 'package:newspaper/provider/bookmark_provider.dart';
 import 'package:newspaper/widget/bottom_nav.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider.value(
+          value: NewsDatabase(),
+        ),
         ChangeNotifierProvider.value(
           value: BookMark(),
         )

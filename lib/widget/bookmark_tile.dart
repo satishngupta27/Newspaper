@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:newspaper/db/bookMarkDb.dart';
 import 'package:newspaper/screen/full_articel_screen.dart';
 import 'package:newspaper/widget/constants.dart';
+import 'package:provider/provider.dart';
 
-class SearchedTile extends StatelessWidget {
+class BookMarkTile extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String url;
   final String source;
   final String publishedAt;
 
-  SearchedTile(
+  BookMarkTile(
       {@required this.imageUrl,
       @required this.title,
       @required this.url,
@@ -21,6 +23,9 @@ class SearchedTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onHorizontalDragStart: (dir) {
+        Provider.of<NewsDatabase>(context, listen: false).removeNews(title);
+      },
       onTap: () {
         Navigator.push(
             context,

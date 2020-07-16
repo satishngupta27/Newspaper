@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newspaper/model/news.dart';
+import 'package:newspaper/model/articel_model.dart';
+import 'package:newspaper/model/news_model.dart';
 import 'package:newspaper/widget/search_tile.dart';
 
 class SearchByTopic extends StatefulWidget {

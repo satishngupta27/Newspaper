@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newspaper/model/news.dart';
+import 'package:newspaper/model/articel_model.dart';
+import 'package:newspaper/model/news_model.dart';
 import 'package:newspaper/widget/single_blogTile.dart';
 
 class HeadlineNewsWidget extends StatefulWidget {
@@ -14,7 +15,6 @@ class _HeadlineNewsWidgetState extends State<HeadlineNewsWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getHeadlineNews();
   }

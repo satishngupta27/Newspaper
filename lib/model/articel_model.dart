@@ -1,29 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-
-class News {
-  String author;
-  String title;
-  String description;
-  String url;
-  String urlToImage;
-  String content;
-  String source;
-  String publishedAt;
-  bool isSaved;
-
-  News({this.author,
-    this.title,
-    this.description,
-    this.url,
-    this.urlToImage,
-    this.content,
-    this.source,
-    this.publishedAt,
-    this.isSaved = false
-  });
-}
+import 'package:newspaper/model/news_model.dart';
 
 class Articles {
   String category;
@@ -36,7 +14,7 @@ class Articles {
 
   Future<void> getTopHeadlineNews() async {
     final String url =
-        'http://newsapi.org/v2/top-headlines?country=in&apiKey=813eecb86f2841be8f484dcef4759de9';
+        'http://newsapi.org/v2/top-headlines?country=in&pageSize=50&apiKey=813eecb86f2841be8f484dcef4759de9';
     var response = await http.get(url);
     var jsonData = jsonDecode(response.body);
     if (jsonData['status'] == 'ok') {
@@ -82,7 +60,7 @@ class Articles {
 
   Future<void> getTopicNews(String topic) async {
     final String url =
-        'https://newsapi.org/v2/everything?q=$topic&apiKey=813eecb86f2841be8f484dcef4759de9';
+        'https://newsapi.org/v2/everything?q=$topic&pageSize=50&apiKey=813eecb86f2841be8f484dcef4759de9';
     var response = await http.get(url);
     var jsonData = jsonDecode(response.body);
     if (jsonData['status'] == 'ok') {
@@ -105,7 +83,7 @@ class Articles {
 
   Future<void> getSourceNews(String source) async {
     final String url =
-        'https://newsapi.org/v2/$source?apiKey=813eecb86f2841be8f484dcef4759de9';
+        'https://newsapi.org/v2/$source?&pageSize=50&apiKey=813eecb86f2841be8f484dcef4759de9';
     var response = await http.get(url);
     var jsonData = jsonDecode(response.body);
     if (jsonData['status'] == 'ok') {

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:newspaper/model/news.dart';
+import 'package:newspaper/db/bookMarkDb.dart';
+import 'package:newspaper/model/news_model.dart';
 
 class BookMark with ChangeNotifier {
   List<News> _items = [];
 
-  int itemcount() {
+  set items(List<News> value) {
+    _items = value;
+  }
+
+  int itemCount() {
     return _items.length;
   }
 
@@ -12,18 +17,24 @@ class BookMark with ChangeNotifier {
 
   void addItem(String title, String url, String urlToImage, String source,
       String publishedAt) {
+    NewsDatabase newsDatabase = NewsDatabase();
     News news = News(
         title: title,
         urlToImage: urlToImage,
         url: url,
         source: source,
         publishedAt: publishedAt);
-    items.add(news);
+
+    newsDatabase.addNews(news);
+    //items.add(news);
+    intoList();
     notifyListeners();
   }
 
-  void remove(String title) {
-    items.removeWhere((element) => element.title == title);
+  Future<void> intoList() async {
+    NewsDatabase newsDatabase = NewsDatabase();
+    var res = await newsDatabase.fetchNews();
+    items = res;
     notifyListeners();
   }
 }
